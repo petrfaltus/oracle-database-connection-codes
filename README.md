@@ -1,4 +1,4 @@
-# Oracle database connection codes
+# Oracle database connection source codes
 Small example console source codes how to connect to the Oracle database, how to update rows and how to read the table.
 
 ## Running under Windows
@@ -12,7 +12,7 @@ Small example console source codes how to connect to the Oracle database, how to
 ### 1. Cloning to your computer
 - install [GIT] on your computer
 - clone this repository to your computer by the GIT command
-  `git clone https://github.com/petrfaltus/oracle-database-connection-codes.git`
+  `git clone https://github.com/petrfaltus/oracle-database-connection-source-codes.git`
 
 ### 2. Install the Oracle database (as a Docker container)
 - install [docker desktop] on your computer
