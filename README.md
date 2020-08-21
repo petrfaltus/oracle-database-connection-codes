@@ -83,6 +83,19 @@ INSERT INTO CARS (MANUFACTURER, MODEL, DOORS) VALUES ('Ford', 'Saloon', 4);
 INSERT INTO CARS (MANUFACTURER, MODEL, DOORS) VALUES ('Ford', 'Focus', 5);
 ```
 
+### 4. The Java client source code
+- install [Java JDK] on your computer
+- set the OS environment `%JAVA_HOME%` variable (must exist `"%JAVA_HOME%\bin\java.exe"`)
+
+#### 4.1. Apache Maven
+- install [Apache Maven] on your computer
+- add the Maven directory (where the batch `mvn.cmd` locates) to the OS environment `%PATH%` variable
+
+The subdirectory `java-maven` contains prepared Windows batches:
+- `01-build.cmd` - clean, compile and build the Maven project
+- `02-run.cmd` - run the built Java archive (JAR)
+- `03-clean.cmd` - clean the Maven project
+
 ## Versions
 Now in August 2020 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM** and available **50GB free HDD space**
 
@@ -92,6 +105,8 @@ Now in August 2020 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM
 | [docker desktop] | 2.3.0.4 (46911) stable | 2 CPUs, 3GB memory, 1GB swap, 48GB disc image size |
 | [Oracle Database Enterprise Edition image] | 12.2.0.1 | default password for sys: Oradoc_db1 |
 | [Oracle SQL Developer] | 20.2.0 | |
+| [Java JDK] | 14.0.1 | Java(TM) SE Runtime Environment (build 14.0.1+7) |
+| [Apache Maven] | 3.6.3 | |
 
 ## To do (my plans to the future)
 
@@ -100,3 +115,5 @@ Now in August 2020 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM
 [docker desktop]: <https://docs.docker.com/desktop/>
 [Oracle Database Enterprise Edition image]: <https://hub.docker.com/_/oracle-database-enterprise-edition>
 [Oracle SQL Developer]: <https://www.oracle.com/database/technologies/appdev/sqldeveloper-landing.html>
+[Java JDK]: <https://www.oracle.com/java/technologies/javase-downloads.html>
+[Apache Maven]: <https://maven.apache.org/>
