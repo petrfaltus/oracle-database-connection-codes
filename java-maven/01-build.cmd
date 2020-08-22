@@ -1,3 +1,3 @@
 @echo off
 
-mvn clean package
+call mvn.cmd clean package

@@ -1,3 +1,3 @@
 @echo off
 
-mvn clean
+call mvn.cmd clean
