@@ -96,6 +96,15 @@ The subdirectory `java-maven` contains prepared Windows batches:
 - `02-run.cmd` - run the built Java archive (JAR)
 - `03-clean.cmd` - clean the Maven project
 
+#### 4.2. Gradle Build Tool
+- install [Gradle Build Tool] on your computer
+- add the Gradle directory (where the batch `gradle.bat` locates) to the OS environment `%PATH%` variable
+
+The subdirectory `java-gradle` contains prepared Windows batches:
+- `01-build.cmd` - clean, compile and build the Gradle project
+- `02-run.cmd` - run the built Java archive (JAR)
+- `03-clean.cmd` - clean the Gradle project
+
 ## Versions
 Now in August 2020 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM** and available **50GB free HDD space**
 
@@ -107,6 +116,7 @@ Now in August 2020 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM
 | [Oracle SQL Developer] | 20.2.0 | |
 | [Java JDK] | 14.0.1 | Java(TM) SE Runtime Environment (build 14.0.1+7) |
 | [Apache Maven] | 3.6.3 | |
+| [Gradle Build Tool] | 6.3 | |
 
 ## To do (my plans to the future)
 
@@ -117,3 +127,4 @@ Now in August 2020 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM
 [Oracle SQL Developer]: <https://www.oracle.com/database/technologies/appdev/sqldeveloper-landing.html>
 [Java JDK]: <https://www.oracle.com/java/technologies/javase-downloads.html>
 [Apache Maven]: <https://maven.apache.org/>
+[Gradle Build Tool]: <https://gradle.org/>
