@@ -1,0 +1,28 @@
+repositories {
+   mavenCentral()
+}
+
+apply plugin: 'java'
+
+version = '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+tasks.withType(JavaCompile) {
+   options.encoding = 'UTF-8'
+}
+
+dependencies {
+   implementation 'com.oracle.database.jdbc:ojdbc10:19.7.0.0'
+}
+
+jar {
+   manifest {
+      attributes 'Main-Class': 'cz.petrfaltus.oracle_db.Program'
+   }
+
+   from {
+      configurations.compileClasspath.collect {
+         it.isDirectory() ? it : zipTree(it)
+      }
+   }
+}
