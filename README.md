@@ -105,6 +105,14 @@ The subdirectory `java-gradle` contains prepared Windows batches:
 - `02-run.cmd` - run the built Java archive (JAR)
 - `03-clean.cmd` - clean the Gradle project
 
+### 5. The .NET C# client source code
+- use the `csc.exe` .NET C# compiler that is the part of Microsoft .NET Framework (part of OS)
+
+The subdirectory `csharp` contains prepared Windows batches:
+- `01-compile.cmd` - compile the source code (contains the path definition to the `csc.exe` compiler)
+- `02-run.cmd` - run the Windows executable
+- `03-clean.cmd` - delete the Windows executable
+
 ## Versions
 Now in August 2020 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM** and available **50GB free HDD space**
 
@@ -117,6 +125,7 @@ Now in August 2020 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM
 | [Java JDK] | 14.0.1 | Java(TM) SE Runtime Environment (build 14.0.1+7) |
 | [Apache Maven] | 3.6.3 | |
 | [Gradle Build Tool] | 6.3 | |
+| .NET C# compiler | 4.8.3752.0 | |
 
 ## To do (my plans to the future)
 
