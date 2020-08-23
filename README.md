@@ -119,8 +119,8 @@ The subdirectory `csharp` contains prepared Windows batches:
 - install [PHP] on your computer
 - set the OS environment `%PHP_HOME%` variable (must exist `"%PHP_HOME%\php.exe"`)
 - install [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019]
-- Install [Oracle Instant Client]
-- Copy `oci.dll`, `oraociei19.dll` and `oraons.dll` from [Oracle Instant Client] to the PHP directory `%PHP_HOME%`
+- install [Oracle Instant Client]
+- copy `oci.dll`, `oraociei19.dll` and `oraons.dll` from [Oracle Instant Client] to the PHP directory `%PHP_HOME%`
 
 To the `php.ini` in the PHP directory `%PHP_HOME%` add lines
 ```
