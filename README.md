@@ -107,6 +107,8 @@ The subdirectory `java-gradle` contains prepared Windows batches:
 
 ### 5. The .NET C# client source code
 - use the `csc.exe` .NET C# compiler that is the part of Microsoft .NET Framework (part of OS)
+- install [Oracle Data Provider for .NET] on your computer
+- check the right `Oracle.ManagedDataAccess.dll` from [Oracle Data Provider for .NET] in the `csharp\bin` directory
 
 The subdirectory `csharp` contains prepared Windows batches:
 - `01-compile.cmd` - compiles the source code (contains the path definition to the `csc.exe` compiler)
@@ -146,6 +148,7 @@ Now in August 2020 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM
 | [Apache Maven] | 3.6.3 | |
 | [Gradle Build Tool] | 6.3 | |
 | .NET C# compiler | 4.8.3752.0 | |
+| [Oracle Data Provider for .NET] | 12.2 | ODP.NET_Managed_ODAC122cR1.zip |
 | [PHP] | 7.4.4 | 7.4.4-nts-Win32-vc15-x64 |
 | [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019] | | VC_redist.x64.exe |
 | [Oracle Instant Client] | 19.6.0.0.0 | instantclient-basic-windows.x64-19.6.0.0.0dbru.zip |
@@ -160,6 +163,7 @@ Now in August 2020 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM
 [Java JDK]: <https://www.oracle.com/java/technologies/javase-downloads.html>
 [Apache Maven]: <https://maven.apache.org/>
 [Gradle Build Tool]: <https://gradle.org/>
+[Oracle Data Provider for .NET]: <https://www.oracle.com/cz/database/technologies/appdev/dotnet/odp.html>
 [PHP]: <https://www.php.net/>
 [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019]: <https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads>
 [Oracle Instant Client]: <https://www.oracle.com/database/technologies/instant-client/downloads.html>

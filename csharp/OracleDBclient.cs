@@ -1,3 +1,9 @@
+/*
+1) Install 'Oracle Data Provider for .NET'
+
+2) Check the right Oracle.ManagedDataAccess.dll from Oracle Data Provider for .NET in the bin subdirectory
+*/
+
 using System;
 using Oracle.ManagedDataAccess.Client;
 
