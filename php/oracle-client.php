@@ -1,12 +1,14 @@
 <?php
 
 /*
-1) From Instant client to the PHP directory copied:
+1) Install 'Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019' and 'Oracle Instant Client'
+
+2) From Instant client to the PHP directory copied:
 oci.dll
 oraociei19.dll
 oraons.dll
 
-2) In the php.ini added lines:
+3) In the php.ini added lines:
 [PHP]
 extension_dir = "ext"
 extension=pdo_oci

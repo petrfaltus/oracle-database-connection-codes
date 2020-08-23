@@ -113,6 +113,26 @@ The subdirectory `csharp` contains prepared Windows batches:
 - `02-run.cmd` - runs the Windows executable
 - `03-clean.cmd` - deletes the Windows executable
 
+### 6. The PHP client source code
+- install [PHP] on your computer
+- set the OS environment `%PHP_HOME%` variable (must exist `"%PHP_HOME%\php.exe"`)
+- install [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019]
+- Install [Oracle Instant Client]
+- Copy `oci.dll`, `oraociei19.dll` and `oraons.dll` from [Oracle Instant Client] to the PHP directory `%PHP_HOME%`
+
+To the `php.ini` in the PHP directory `%PHP_HOME%` add lines
+```
+[PHP]
+extension_dir = "ext"
+extension=pdo_oci
+
+[Date]
+date.timezone = Europe/Prague
+```
+
+The subdirectory `php` contains prepared Windows batch:
+- `01-run.cmd` - runs the code through the PHP interpreter
+
 ## Versions
 Now in August 2020 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM** and available **50GB free HDD space**
 
@@ -126,6 +146,9 @@ Now in August 2020 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM
 | [Apache Maven] | 3.6.3 | |
 | [Gradle Build Tool] | 6.3 | |
 | .NET C# compiler | 4.8.3752.0 | |
+| [PHP] | 7.4.4 | 7.4.4-nts-Win32-vc15-x64 |
+| [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019] | | VC_redist.x64.exe |
+| [Oracle Instant Client] | 19.6.0.0.0 | instantclient-basic-windows.x64-19.6.0.0.0dbru.zip |
 
 ## To do (my plans to the future)
 
@@ -137,3 +160,6 @@ Now in August 2020 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM
 [Java JDK]: <https://www.oracle.com/java/technologies/javase-downloads.html>
 [Apache Maven]: <https://maven.apache.org/>
 [Gradle Build Tool]: <https://gradle.org/>
+[PHP]: <https://www.php.net/>
+[Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019]: <https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads>
+[Oracle Instant Client]: <https://www.oracle.com/database/technologies/instant-client/downloads.html>
