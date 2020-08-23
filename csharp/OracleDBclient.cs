@@ -11,9 +11,18 @@ public class OracleDBclient
 
     private const string db_table = "cars";
 
+    private const string db_update_column = "remark";
+    private const string db_update_column_variable = "updatevar";
+
     private const string db_column = "id";
     private const string db_column_variable = "var";
     private const int db_column_value = 1;
+
+    private static string GetNow()
+    {
+        DateTime dateTimeNow = DateTime.Now;
+        return dateTimeNow.ToString();
+    }
 
     public static void Main(string[] args)
     {
@@ -34,6 +43,24 @@ public class OracleDBclient
                 Console.WriteLine("Server version: {0}", conn.ServerVersion);
                 Console.WriteLine("Connection timeout: {0}", conn.ConnectionTimeout);
                 Console.WriteLine("State: {0}", conn.State);
+                Console.WriteLine();
+
+                // UPDATE statement
+                string new_comment = "C# " + GetNow();
+
+                string sql0 = String.Format("update {0} set {1}=:{2} where {3}!=:{4}", db_table, db_update_column, db_update_column_variable, db_column, db_column_variable);
+                using (var cmd = new OracleCommand(sql0, conn))
+                {
+                    OracleParameter par1 = new OracleParameter(db_update_column_variable, new_comment);
+                    cmd.Parameters.Add(par1);
+
+                    OracleParameter par2 = new OracleParameter(db_column_variable, db_column_value);
+                    cmd.Parameters.Add(par2);
+
+                    int updatedRows = cmd.ExecuteNonQuery();
+                    Console.WriteLine("Total updated rows: {0}", updatedRows);
+                }
+
                 Console.WriteLine();
 
                 // Full SELECT statement
