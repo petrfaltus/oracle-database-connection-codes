@@ -11,6 +11,10 @@ public class OracleDBclient
 
     private const string db_table = "cars";
 
+    private const string db_column = "id";
+    private const string db_column_variable = "var";
+    private const int db_column_value = 1;
+
     public static void Main(string[] args)
     {
         // Build the connection string
@@ -88,6 +92,17 @@ public class OracleDBclient
                     }
 
                 Console.WriteLine();
+
+                // SELECT WHERE statement
+                string sql2 = String.Format("select count(*) from {0} where {1}!=:{2}", db_table, db_column, db_column_variable);
+                using (var cmd = new OracleCommand(sql2, conn))
+                {
+                    OracleParameter par1 = new OracleParameter(db_column_variable, db_column_value);
+                    cmd.Parameters.Add(par1);
+
+                    Object result = cmd.ExecuteScalar();
+                    Console.WriteLine("Result: {0}", result);
+                }
             }
         }
         catch (OracleException oex)
