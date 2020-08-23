@@ -19,12 +19,12 @@ Small example console source codes how to connect to the Oracle database, how to
 - refer the [Oracle Database Enterprise Edition image]
 
 The subdirectory `docker-database` contains prepared Windows batches:
-- `01-run-database.cmd` - pull the image (the download size is about 2GB) and run the container **at the first time** (takes a time until ready)
-- `02-switch-database-OFF.cmd` - stop already existing container
-- `02-switch-database-ON.cmd` - start already existing container (takes a time until ready)
-- `03-inspect-database.cmd` - show details for already existing container
-- `04-exec-connection-to-database.cmd` - execute the **SQL Plus** terminal into running database container
-- `containers.cmd` - list of currently running containers and list of all existing containers
+- `01-run-database.cmd` - pulls the image (the download size is about 2GB) and runs the container **at the first time** (takes a time until ready)
+- `02-switch-database-OFF.cmd` - stops the already existing container
+- `02-switch-database-ON.cmd` - starts the already existing container (takes a time until ready)
+- `03-inspect-database.cmd` - shows details for already existing container
+- `04-exec-connection-to-database.cmd` - executes the **SQL Plus** terminal into running database container
+- `containers.cmd` - lists currently running containers and list of all existing containers
 
 ### 3. Preparing the database
 For the connection to the dabase use either the **SQL Plus** terminal or the [Oracle SQL Developer]
@@ -92,26 +92,26 @@ INSERT INTO CARS (MANUFACTURER, MODEL, DOORS) VALUES ('Ford', 'Focus', 5);
 - add the Maven directory (where the batch `mvn.cmd` locates) to the OS environment `%PATH%` variable
 
 The subdirectory `java-maven` contains prepared Windows batches:
-- `01-build.cmd` - clean, compile and build the Maven project
-- `02-run.cmd` - run the built Java archive (JAR)
-- `03-clean.cmd` - clean the Maven project
+- `01-build.cmd` - cleans, compiles and builds the Maven project
+- `02-run.cmd` - runs the built Java archive (JAR)
+- `03-clean.cmd` - cleans the Maven project
 
 #### 4.2. Gradle Build Tool
 - install [Gradle Build Tool] on your computer
 - add the Gradle directory (where the batch `gradle.bat` locates) to the OS environment `%PATH%` variable
 
 The subdirectory `java-gradle` contains prepared Windows batches:
-- `01-build.cmd` - clean, compile and build the Gradle project
-- `02-run.cmd` - run the built Java archive (JAR)
-- `03-clean.cmd` - clean the Gradle project
+- `01-build.cmd` - cleans, compiles and builds the Gradle project
+- `02-run.cmd` - runs the built Java archive (JAR)
+- `03-clean.cmd` - cleans the Gradle project
 
 ### 5. The .NET C# client source code
 - use the `csc.exe` .NET C# compiler that is the part of Microsoft .NET Framework (part of OS)
 
 The subdirectory `csharp` contains prepared Windows batches:
-- `01-compile.cmd` - compile the source code (contains the path definition to the `csc.exe` compiler)
-- `02-run.cmd` - run the Windows executable
-- `03-clean.cmd` - delete the Windows executable
+- `01-compile.cmd` - compiles the source code (contains the path definition to the `csc.exe` compiler)
+- `02-run.cmd` - runs the Windows executable
+- `03-clean.cmd` - deletes the Windows executable
 
 ## Versions
 Now in August 2020 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM** and available **50GB free HDD space**
