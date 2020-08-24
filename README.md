@@ -27,7 +27,7 @@ The subdirectory `docker-database` contains prepared Windows batches:
 - `containers.cmd` - lists currently running containers and list of all existing containers
 
 ### 3. Preparing the database
-For the connection to the dabase use either the **SQL Plus** terminal or the [Oracle SQL Developer]
+For the connection to the database use either the **SQL Plus** terminal or the [Oracle SQL Developer]
 
 #### Connection using SQL Plus
 User *sys* (default password *Oradoc_db1*)
@@ -44,9 +44,11 @@ ALTER SESSION SET "_ORACLE_SCRIPT"=true;
 
 #### Connection using SQL Developer
 User *sys* (default password *Oradoc_db1*)
+
 ![user sys configuration](sql.developer.sys.png)
 
 User *testuser* (default password *T3stUs3r!*)
+
 ![user testuser configuration](sql.developer.testuser.png)
 
 #### SQL lines for sys
