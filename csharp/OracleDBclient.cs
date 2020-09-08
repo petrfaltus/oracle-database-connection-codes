@@ -5,6 +5,7 @@
 */
 
 using System;
+using System.Data;
 using Oracle.ManagedDataAccess.Client;
 
 public class OracleDBclient
@@ -26,6 +27,14 @@ public class OracleDBclient
 
     private const string db_factorial_variable = "n";
     private const int db_factorial_value = 4;
+
+    private const string db_add_and_subtract_a_variable = "a";
+    private const int db_add_and_subtract_a_value = 12;
+    private const string db_add_and_subtract_b_variable = "b";
+    private const int db_add_and_subtract_b_value = 5;
+
+    private const string db_add_and_subtract_x_variable = "x";
+    private const string db_add_and_subtract_y_variable = "y";
 
     private static string GetNow()
     {
@@ -151,6 +160,28 @@ public class OracleDBclient
 
                     Object result = cmd.ExecuteScalar();
                     Console.WriteLine("Result: {0}", result);
+                }
+
+                Console.WriteLine();
+
+                // CALL package procedure statement
+                string sql4 = String.Format("calculator.add_and_subtract");
+                using (var cmd = new OracleCommand(sql4, conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    OracleParameter par1 = new OracleParameter(db_add_and_subtract_a_variable, db_add_and_subtract_a_value);
+                    cmd.Parameters.Add(par1);
+                    OracleParameter par2 = new OracleParameter(db_add_and_subtract_b_variable, db_add_and_subtract_b_value);
+                    cmd.Parameters.Add(par2);
+                    OracleParameter par3 = new OracleParameter(db_add_and_subtract_x_variable, OracleDbType.Int32, ParameterDirection.Output);
+                    cmd.Parameters.Add(par3);
+                    OracleParameter par4 = new OracleParameter(db_add_and_subtract_y_variable, OracleDbType.Int32, ParameterDirection.Output);
+                    cmd.Parameters.Add(par4);
+
+                    cmd.ExecuteNonQuery();
+                    Console.WriteLine("Result x: {0}", cmd.Parameters[db_add_and_subtract_x_variable].Value);
+                    Console.WriteLine("Result y: {0}", cmd.Parameters[db_add_and_subtract_y_variable].Value);
                 }
             }
         }
