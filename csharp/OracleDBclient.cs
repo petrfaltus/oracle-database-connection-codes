@@ -24,6 +24,9 @@ public class OracleDBclient
     private const string db_column_variable = "var";
     private const int db_column_value = 1;
 
+    private const string db_factorial_variable = "n";
+    private const int db_factorial_value = 4;
+
     private static string GetNow()
     {
         DateTime dateTimeNow = DateTime.Now;
@@ -131,6 +134,19 @@ public class OracleDBclient
                 using (var cmd = new OracleCommand(sql2, conn))
                 {
                     OracleParameter par1 = new OracleParameter(db_column_variable, db_column_value);
+                    cmd.Parameters.Add(par1);
+
+                    Object result = cmd.ExecuteScalar();
+                    Console.WriteLine("Result: {0}", result);
+                }
+
+                Console.WriteLine();
+
+                // SELECT package function statement
+                string sql3 = String.Format("select calculator.factorial(:{0}) from dual", db_factorial_variable);
+                using (var cmd = new OracleCommand(sql3, conn))
+                {
+                    OracleParameter par1 = new OracleParameter(db_factorial_variable, db_factorial_value);
                     cmd.Parameters.Add(par1);
 
                     Object result = cmd.ExecuteScalar();
