@@ -2,6 +2,7 @@ package cz.petrfaltus.oracle_db;
 
 import static java.lang.System.out;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Types;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -33,6 +35,11 @@ public class Program {
 
 	private static final String DB_COLUMN = "id";
 	private static final int DB_COLUMN_VALUE = 1;
+
+	private static final int DB_FACTORIAL_VALUE = 4;
+
+	private static final int DB_ADD_AND_SUBTRACT_A_VALUE = 12;
+	private static final int DB_ADD_AND_SUBTRACT_B_VALUE = 5;
 
 	private static String getNow()
 	{
@@ -119,6 +126,44 @@ public class Program {
 
 				out.println();
 			}
+			out.println();
+
+			// SELECT package function statement
+			PreparedStatement stm3 = conn.prepareStatement("select calculator.factorial(?) from dual");
+			stm3.setInt(1, DB_FACTORIAL_VALUE);
+			ResultSet rs3 = stm3.executeQuery();
+			ResultSetMetaData rsmd3 = rs3.getMetaData();
+
+			int columns3 = rsmd3.getColumnCount();
+			out.println("Total columns: " + columns3);
+			for (int ii = 1; ii <= columns3; ii++) {
+				out.println(" - " + rsmd3.getColumnName(ii) + " " + rsmd3.getColumnTypeName(ii) + " (" + rsmd3.getPrecision(ii) + ")");
+			}
+
+			int rowNumber3 = 0;
+			while (rs3.next()) {
+				++rowNumber3;
+
+				out.print(rowNumber3 + ")");
+
+				for (int ii = 1; ii <= columns3; ii++) {
+					out.print(" '" + rs3.getObject(ii) + "'");
+				}
+
+				out.println();
+			}
+			out.println();
+
+			// CALL package procedure statement
+			CallableStatement stm4 = conn.prepareCall("call calculator.add_and_subtract(?, ?, ?, ?)");
+			stm4.setFloat(1, DB_ADD_AND_SUBTRACT_A_VALUE);
+			stm4.setFloat(2, DB_ADD_AND_SUBTRACT_B_VALUE);
+			stm4.registerOutParameter(3, Types.INTEGER);
+			stm4.registerOutParameter(4, Types.INTEGER);
+			stm4.executeQuery();
+
+			out.println("'" + stm4.getObject(3) + "'");
+			out.println("'" + stm4.getObject(4) + "'");
 
 			// Disconnect the database
 			conn.close();

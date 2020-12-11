@@ -33,6 +33,19 @@ $db_column = "id";
 $db_column_variable = ":var";
 $db_column_value = 1;
 
+$db_factorial_variable = ":n";
+$db_factorial_value = 4;
+
+$db_add_and_subtract_a_variable = ":a";
+$db_add_and_subtract_a_value = 12;
+$db_add_and_subtract_b_variable = ":b";
+$db_add_and_subtract_b_value = 5;
+
+$db_add_and_subtract_x_variable = ":x";
+$db_add_and_subtract_x_value = -1;
+$db_add_and_subtract_y_variable = ":y";
+$db_add_and_subtract_y_value = -1;
+
 $availableDrivers = PDO::getAvailableDrivers();
 
 echo "Available PDO drivers ";
@@ -96,8 +109,44 @@ try
      print_r($stm2->errorInfo());
    else
      print_r($lines2);
+   echo PHP_EOL;
 
    $stm2 = null;
+
+   // SELECT package function statement
+   $stm3 = $conn->prepare("select calculator.factorial(".$db_factorial_variable.") from dual");
+   $stm3->bindParam($db_factorial_variable, $db_factorial_value, PDO::PARAM_INT);
+   $stm3->execute();
+   echo "Total columns: ".$stm3->columnCount().PHP_EOL;
+
+   echo "Fetch all rows ";
+   $lines2 = $stm3->fetchAll(PDO::FETCH_ASSOC);
+   if ($lines2 == false)
+     print_r($stm3->errorInfo());
+   else
+     print_r($lines2);
+   echo PHP_EOL;
+
+   $stm3 = null;
+
+   // CALL package procedure statement
+   $stm4 = $conn->prepare("call calculator.add_and_subtract(".$db_add_and_subtract_a_variable.", ".$db_add_and_subtract_b_variable.", ".$db_add_and_subtract_x_variable.", ".$db_add_and_subtract_y_variable.")");
+   $stm4->bindParam($db_add_and_subtract_a_variable, $db_add_and_subtract_a_value, PDO::PARAM_INT);
+   $stm4->bindParam($db_add_and_subtract_b_variable, $db_add_and_subtract_b_value, PDO::PARAM_INT);
+   $stm4->bindParam($db_add_and_subtract_x_variable, $db_add_and_subtract_x_value, PDO::PARAM_INT | PDO::PARAM_INPUT_OUTPUT, 20);
+   $stm4->bindParam($db_add_and_subtract_y_variable, $db_add_and_subtract_y_value, PDO::PARAM_INT | PDO::PARAM_INPUT_OUTPUT, 20);
+   $stm4->execute();
+
+   $stm4error = $stm4->errorInfo();
+   if ((isset($stm4error[0])) and ($stm4error[0] === "00000"))
+     {
+      echo "X: ".$db_add_and_subtract_x_value.PHP_EOL;
+      echo "Y: ".$db_add_and_subtract_y_value.PHP_EOL;
+     }
+   else
+     print_r($stm4error);
+
+   $stm4 = null;
 
    // Disconnect the database
    $conn = null;
