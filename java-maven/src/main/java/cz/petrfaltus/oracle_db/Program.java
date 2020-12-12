@@ -156,8 +156,8 @@ public class Program {
 
 			// CALL package procedure statement
 			CallableStatement stm4 = conn.prepareCall("call calculator.add_and_subtract(?, ?, ?, ?)");
-			stm4.setFloat(1, DB_ADD_AND_SUBTRACT_A_VALUE);
-			stm4.setFloat(2, DB_ADD_AND_SUBTRACT_B_VALUE);
+			stm4.setInt(1, DB_ADD_AND_SUBTRACT_A_VALUE);
+			stm4.setInt(2, DB_ADD_AND_SUBTRACT_B_VALUE);
 			stm4.registerOutParameter(3, Types.INTEGER);
 			stm4.registerOutParameter(4, Types.INTEGER);
 			stm4.executeQuery();
