@@ -114,6 +114,33 @@ END;
 /
 ```
 
+#### optional SQL check lines for testuser
+```sql
+SELECT * FROM CARS;
+
+SELECT COUNT(*) FROM CARS;
+SELECT COUNT(*) FROM CARS WHERE ID!=1;
+
+SELECT CALCULATOR.FACTORIAL(2) FROM DUAL;
+SELECT CALCULATOR.FACTORIAL(3) FROM DUAL;
+SELECT CALCULATOR.FACTORIAL(4) FROM DUAL;
+
+SET serveroutput on;
+DECLARE
+  a INTEGER := 12;
+  b INTEGER := 5;
+  x INTEGER;
+  y INTEGER;
+BEGIN
+  dbms_output.put_line('a = ' || a);
+  dbms_output.put_line('b = ' || b);
+  CALCULATOR.ADD_AND_SUBTRACT(a, b, x, y);
+  dbms_output.put_line('x = ' || x);
+  dbms_output.put_line('y = ' || y);
+END;
+/
+```
+
 ### 4. The Java client source code
 - install [Java JDK] on your computer
 - set the OS environment `%JAVA_HOME%` variable (must exist `"%JAVA_HOME%\bin\java.exe"`)
