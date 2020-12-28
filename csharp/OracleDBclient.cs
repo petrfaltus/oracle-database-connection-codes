@@ -67,6 +67,8 @@ public class OracleDBclient
                 string new_comment = "C# " + GetNow();
 
                 string sql0 = String.Format("update {0} set {1}=:{2} where {3}!=:{4}", db_table, db_update_column, db_update_column_variable, db_column, db_column_variable);
+                Console.WriteLine(sql0);
+
                 using (var cmd = new OracleCommand(sql0, conn))
                 {
                     OracleParameter par1 = new OracleParameter(db_update_column_variable, new_comment);
@@ -83,6 +85,8 @@ public class OracleDBclient
 
                 // Full SELECT statement
                 string sql1 = String.Format("select * from {0}", db_table);
+                Console.WriteLine(sql1);
+
                 using (var cmd = new OracleCommand(sql1, conn))
                     using (OracleDataReader reader = cmd.ExecuteReader())
                     {
@@ -140,6 +144,8 @@ public class OracleDBclient
 
                 // SELECT WHERE statement
                 string sql2 = String.Format("select count(*) from {0} where {1}!=:{2}", db_table, db_column, db_column_variable);
+                Console.WriteLine(sql2);
+
                 using (var cmd = new OracleCommand(sql2, conn))
                 {
                     OracleParameter par1 = new OracleParameter(db_column_variable, db_column_value);
@@ -153,6 +159,8 @@ public class OracleDBclient
 
                 // SELECT package function statement
                 string sql3 = String.Format("select calculator.factorial(:{0}) from dual", db_factorial_variable);
+                Console.WriteLine(sql3);
+
                 using (var cmd = new OracleCommand(sql3, conn))
                 {
                     OracleParameter par1 = new OracleParameter(db_factorial_variable, db_factorial_value);
@@ -166,6 +174,8 @@ public class OracleDBclient
 
                 // CALL package procedure statement
                 string sql4 = String.Format("calculator.add_and_subtract");
+                Console.WriteLine(sql4);
+
                 using (var cmd = new OracleCommand(sql4, conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
