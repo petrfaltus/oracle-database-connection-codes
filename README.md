@@ -214,7 +214,7 @@ Now in August 2020 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM
 ## To do (my plans to the future)
 
 
-[GIT]: <https://git-scm.com>
+[GIT]: <https://git-scm.com/>
 [docker desktop]: <https://docs.docker.com/desktop/>
 [Oracle Database Enterprise Edition image]: <https://hub.docker.com/_/oracle-database-enterprise-edition>
 [Oracle SQL Developer]: <https://www.oracle.com/database/technologies/appdev/sqldeveloper-landing.html>
